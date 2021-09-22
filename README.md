@@ -3,7 +3,6 @@
 DevOps course at URJC Teleco Master.
 
 With provisioning, configuration and orchestration focus.
-
 ## The use cases detected 
 
 ### Bearing in mind that the web design is oriented towards scientific journalism:
@@ -17,6 +16,3 @@ With provisioning, configuration and orchestration focus.
 ### The provisional architecture for implementing the use cases is as follows:
 
 ![Architecture](/images/architecture.png)
-=======
-# COVID Information
-This proyect ...
