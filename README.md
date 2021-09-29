@@ -16,4 +16,4 @@ With provisioning, configuration and orchestration focus.
 
 ### The provisional architecture for implementing the use cases is as follows:
 
-![Architecture](/images/Untitled Diagram.drawio.png)
+![Architecture](/images/Diagram_drawio.png)
