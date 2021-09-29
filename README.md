@@ -4,6 +4,10 @@ DevOps course at URJC Teleco Master.
 
 With provisioning, configuration and orchestration focus.
 
+## Data description 
+
+## Requirements for the application
+
 ## The use cases detected 
 
 ### Bearing in mind that the web design is oriented towards scientific journalism:
