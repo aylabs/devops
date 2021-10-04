@@ -30,4 +30,4 @@ This program, analyze data file and extract important information, to make graph
 
 ### The provisional architecture for implementing the use cases is as follows:
 
-![Architecture](/images/architecture.png)
+![Architecture](/images/Diagram_drawio.png)
