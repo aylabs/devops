@@ -1,24 +1,32 @@
 <!DOCTYPE html>
-<html>
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+  </head>
+  <body>
+    <button id="back"><a href="/">Main page</a></button>
 
     <h1>Minimal web portal consuming our API REST about Covid-19 tests</h1>
-    <p><a href="/">Main page</a></p>
-    <h3>Manufacturers of covid tests:</h3>
 
-    <table class="default">
-      <tr>
-        <th>Manufacturers</th>
-      </tr>
-      <tbody>
-        {% for id in list %}
-            <tr>
-                <td>{{id}}</td>
-            </tr>
-        {% endfor %}
-      </tbody>
+    <div id="container" class="manufactures">
+      <h2>Manufacturers of covid tests:</h2>
 
-    </table>
-
-    </body>
+      <table class="default">
+        <tbody>
+        <p>
+          {% for id in list %}
+              <tr>
+                  <td>{{id}}</td>
+              </tr>
+          {% endfor %}
+        </p>
+        </tbody>
+      </table>
+    </div>
+  
+  </body>
 </html>

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Root</title>
+        <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+    </head>
     <body>
 
-    <h1>Minimal web portal consuming our API REST about Covid-19 tests</h1>
+        <h1>Minimal web portal consuming our API REST about Covid-19 tests</h1>
 
-    <h3>Information about Covid-19:</h3>
-    <ul>
-          <li><a href="/">Root</a></li>
-          <li><a href="/tests">Manufacturers of covid tests</a></li>
-    </ul>
-
+        <div id=container>
+            <h3>Information about Covid-19:</h3>
+            <button><a href="/">Root</a></button>
+            <br><br>
+            <button><a href="/tests">Manufacturers of covid tests</a></button>
+        </div>
+    <footer>
+        <img id="logo" src="static/logo-covid.png">
+    </footer>
     </body>
 </html>
