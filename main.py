@@ -13,7 +13,6 @@ df = data.getDataframe()
 
 @app.get('/')
 def root(request:Request):
-    json_datos =  {'message': 'Hello world!'}
     return templates.TemplateResponse("root.html", {"request":request})
 
 
