@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <h1>Minimal web portal consuming our API REST about Covid-19 tests</h1>
+    <p><a href="/">Main page</a></p>
+    <h3>Manufacturers of covid tests:</h3>
+
+    <table class="default">
+      <tr>
+        <th>Manufacturers</th>
+      </tr>
+      <tbody>
+
+        {% for id in list %}
+        <tr>
+            <td>{{id}}</td>
+            </tr>
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+    </body>
+</html>
