@@ -10,7 +10,6 @@ ENV PYTHONPATH /code
 WORKDIR /code
 ENV WORKON_HOME /tmp
 
-
 RUN python3 -m venv .venv && \
     .venv/bin/pip install -U pip && \
     .venv/bin/pip install -r requirements.txt --no-cache-dir
