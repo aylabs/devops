@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  covid19_1:
+    build: .
+    ports:
+      - "40001:8000"
+
+  covid19_2:
+    build: .
+    ports:
+      - "40002:8000"
+
+  nginx:
+    build: ./docker/nginx
+    ports:
+      - "40080:80"
+    depends_on:
+      - covid19_1
+      - covid19_2
