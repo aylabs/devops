@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "orion";
+    src: url("orion.ttf");
+}
+
+body{
+    background: url("FONDO.jpg") no-repeat center center fixed;
+    font-family: "orion";
+    font-size: 25px;
+}
+
+h1{
+    text-align: center;
+    background-color:lightcyan;
+    padding: 5px;
+}
+
+#container{
+    background-color: rgba(224, 255, 255, 0.507);
+    border-radius: 10px;
+    width: 45%;
+    margin-left: 27%;
+    margin-top: 5%;
+    padding: 10px;
+    text-align: center;
+    height: 520px;
+    overflow: auto;
+}
+
+h3{
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-family: "orion";
+}
+
+button{
+    font-size: 20px;
+    background-color: rgb(72, 180, 241);
+    color: black;
+    border: solid black 2px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: lightsalmon;
+    font-size: 1.5em;
+    transition: all 0.5s;
+}
+
+
+
+footer{
+    padding: 0px 0;
+    margin-left: 0%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+}
+
+img{
+    width: 20%;
+}
+
+.default{
+    font-weight: bold;
+    margin-left: 27%;
+}
