@@ -1,9 +1,15 @@
+import logging
+
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from code import data
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
+
+logging.info("Stating Covid19 application")
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="templates/static"), name="static")
