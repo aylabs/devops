@@ -19,6 +19,7 @@ resource "aws_security_group" "ssh" {
 }
 
 resource "aws_instance" "swarm_node" {
+  count=3
   # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
   ami = "ami-08edbb0e85d6a0a07"
   instance_type = "t2.micro"
