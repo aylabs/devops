@@ -2,9 +2,42 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+resource "aws_instance" "swarm_node" {
+  count=3
+  # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
+  ami = "ami-08edbb0e85d6a0a07"
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [
+    aws_security_group.ssh.id,
+    aws_security_group.http_out.id,
+    aws_security_group.swarm-sg.id
+  ]
+  key_name = var.key_name
+
+  user_data = <<-EOF
+    #!/bin/bash
+    echo "Check" > test.log
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sh get-docker.sh
+    adduser ubuntu docker
+  EOF
+
+  tags = {
+    Name = var.tag
+  }
+}
+
 module "ssh-key" {
   source = "./modules/ssh-key"
   key_name = var.key_name
+  tag = var.tag
+}
+
+resource "aws_security_group" "swarm-sg" {}
+module "swarm-sg" {
+  source = "./modules/swarm-security-group"
+  security_group_id = aws_security_group.swarm-sg.id
+  tag = var.tag
 }
 
 resource "aws_security_group" "ssh" {
@@ -15,6 +48,10 @@ resource "aws_security_group" "ssh" {
       to_port = 22
       protocol = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = var.tag
   }
 }
 
@@ -35,25 +72,9 @@ resource "aws_security_group" "http_out" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-resource "aws_instance" "swarm_node" {
-  count=3
-  # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
-  ami = "ami-08edbb0e85d6a0a07"
-  instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.ssh.id, aws_security_group.http_out.id]
-  key_name = var.key_name
-
-  user_data = <<-EOF
-    #!/bin/bash
-    echo "Check" > test.log
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sh get-docker.sh
-    adduser ubuntu docker
-  EOF
 
   tags = {
-    Name = "swarm"
+    Name = var.tag
   }
 }
+
