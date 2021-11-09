@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 resource "aws_instance" "swarm_node" {
-  count=3
+  count=var.cluster_size
   # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
   ami = "ami-08edbb0e85d6a0a07"
   instance_type = "t2.micro"
   vpc_security_group_ids = [
     aws_security_group.ssh.id,
-    aws_security_group.http_out.id,
+    aws_security_group.http.id,
     aws_security_group.swarm-sg.id
   ]
   key_name = var.key_name
@@ -55,9 +55,16 @@ resource "aws_security_group" "ssh" {
   }
 }
 
-resource "aws_security_group" "http_out" {
+resource "aws_security_group" "http" {
   name = "allow_http_out"
   description = "Allow HTTP/S connections"
+
+  ingress {
+    from_port   = 0
+    to_port     = 40001
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   egress {
     from_port   = 0
