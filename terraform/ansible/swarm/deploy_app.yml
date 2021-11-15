@@ -1,0 +1,31 @@
+- hosts: cluster
+  tasks:
+
+
+    - name: create docker_service group
+      add_host:
+        hostname: "{{ item }}"
+        groups: swarm
+      with_items: "{{ ansible_play_hosts | default(play_hosts) }}"
+      run_once: true
+
+    - name: Print the ip of first node
+      debug:
+        msg: "Swarm active nodes {{item}}"
+      with_items: "{{ ansible_default_ipv4.address }}"
+      run_once: true
+
+
+- name: Ansible Copy docker-compose-swarm.yaml Local to firt node
+  hosts: swarm
+  tasks:
+    - name: copying file with playbook
+      become: true
+      copy:
+        src: ../../../docker-compose-swarm.yaml
+        dest: ./docker-compose-swarm.yaml
+      run_once: true
+    - name: deploy covid19 app
+      shell: docker stack deploy --compose-file docker-compose-swarm.yaml covid19
+      run_once: true
+
