@@ -2,6 +2,17 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket  = "devops-urjc-state"
+    key     = "terraform/devops-swarm-state/terraform.tfstate"
+    region = "eu-west-1"
+
+    dynamodb_table = "devops-urjc-locks"
+    encrypt = true
+  }
+}
+
 resource "aws_instance" "swarm_node" {
   count=var.cluster_size
   # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type
