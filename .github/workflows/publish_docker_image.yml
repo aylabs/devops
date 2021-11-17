@@ -1,5 +1,5 @@
 name: Publish Docker Image
-on: [release, pull_request]
+on: [release]
 jobs:
   push_to_registry:
     runs-on: ubuntu-20.04
