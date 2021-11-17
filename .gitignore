@@ -132,3 +132,4 @@ dmypy.json
 
 .terraform
 *terraform.tfstate*
+*terraform.lock*
