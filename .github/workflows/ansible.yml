@@ -1,5 +1,5 @@
 name: Execute Ansible scripts
-on: [push]
+on: [release]
 jobs:
   ansible:
     runs-on: ubuntu-20.04
