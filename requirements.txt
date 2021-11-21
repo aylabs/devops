@@ -4,4 +4,3 @@ pandas~=1.3.3
 requests
 jinja2
 aiofiles
-ansible
