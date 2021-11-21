@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket  = "devops-urjc-state"
+    bucket  = "devops-urjc-state-jesus"
     key     = "terraform/devops-swarm-state/terraform.tfstate"
     region = "eu-west-1"
 
