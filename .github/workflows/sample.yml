@@ -1,5 +1,5 @@
 name: Sample workflow
-on: []
+on: [release]
 jobs:
   Sample:
     runs-on: ubuntu-20.04

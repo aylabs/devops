@@ -1,6 +1,0 @@
-# Inspired by https://ibrahimgunduz34.medium.com/deploy-your-code-to-your-production-servers-from-github-f11b83cf6012
-name: 'Ansible'
-description: 'Execute ansible playbooks'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
