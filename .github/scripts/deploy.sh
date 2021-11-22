@@ -23,5 +23,3 @@ ansible-vault decrypt \
 rm ~/vault_passowrd_file.txt
 
 ansible-playbook -u ubuntu -i terraform/ansible/hosts.ini terraform/ansible/swarm/deploy_app.yml
-
-docker ps

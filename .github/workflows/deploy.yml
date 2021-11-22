@@ -1,6 +1,8 @@
 name: Execute Ansible scripts
 on:
-  pull_request:
+  push:
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-20.04
