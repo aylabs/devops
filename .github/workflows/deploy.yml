@@ -1,4 +1,4 @@
-name: Execute Ansible scripts
+name: Deploy services to cluster
 on:
   push:
     branches:
