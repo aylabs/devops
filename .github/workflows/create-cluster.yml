@@ -1,10 +1,11 @@
 name: Create the cluster
 on:
   workflow_dispatch:
-    number_nodes:
-      default: 3
-      required: true
-      description: "Number of nodes of the cluster"
+    inputs:
+      number_nodes:
+        default: 3
+        required: true
+        description: "Number of nodes of the cluster"
 
 jobs:
   deploy:
