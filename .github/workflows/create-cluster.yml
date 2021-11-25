@@ -1,6 +1,11 @@
 name: Create the cluster
 on:
-  release:
+  workflow_dispatch:
+    number_nodes:
+      default: 3
+      required: true
+      description: "Number of nodes of the cluster"
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
@@ -14,4 +19,5 @@ jobs:
           VAULT_PASS: ${{ secrets.VAULT_PASS }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          NUMBER_OF_NODES: ${{ github.event.inputs.number_nodes }}
 

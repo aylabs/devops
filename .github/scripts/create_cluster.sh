@@ -7,7 +7,7 @@ unzip -o terraform_1.0.11_linux_amd64.zip -d ~
 # Use Terraform to create the cluster
 cd terraform/terraform_aws
 ~/terraform init
-~/terraform apply -var="cluster_size=3" -auto-approve
+~/terraform apply -var="cluster_size=$NUMBER_OF_NODES" -auto-approve
 ~/terraform output | grep '"' | awk -F '"' 'BEGIN {i=1; print "[cluster]"} {print "node0" i++ " ansible_host="$2}' > ../../terraform/ansible/hosts.ini
 cd ../..
 

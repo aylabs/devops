@@ -1,6 +1,6 @@
 name: Destroy the cluster
 on:
-  release:
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
