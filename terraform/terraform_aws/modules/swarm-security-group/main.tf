@@ -129,3 +129,25 @@ resource "aws_security_group_rule" "swarm_sgr_12" {
   cidr_blocks = ["0.0.0.0/0"]
 
 }
+
+resource "aws_security_group_rule" "swarm_sgr_13" {
+  security_group_id = var.security_group_id
+
+  type        = "ingress"
+  from_port   = 0
+  to_port     = 49153
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+
+}
+
+resource "aws_security_group_rule" "swarm_sgr_14" {
+  security_group_id = var.security_group_id
+
+  type        = "egress"
+  from_port   = 0
+  to_port     = 49153
+  protocol    = "tcp"
+  cidr_blocks = ["0.0.0.0/0"]
+
+}

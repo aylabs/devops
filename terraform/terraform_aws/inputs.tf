@@ -11,5 +11,5 @@ variable "tag" {
 variable "cluster_size" {
   type = number
   description = "Number of nodes in the cluster"
-  default = 2
+  default = 3
 }
