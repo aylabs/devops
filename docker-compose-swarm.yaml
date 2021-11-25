@@ -11,5 +11,31 @@ services:
       update_config:
         delay: 10s
 
-  redis:
-    image: redis:alpine
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    deploy:
+      replicas: 1
+
+  grafana:
+    image: grafana/grafana:6.5.0
+    ports:
+      - "3000:3000"
+    deploy:
+      replicas: 1
+
+  cadvisor:
+    image: google/cadvisor
+    ports:
+      - "8080:8080"
+   volumes:
+     - /var/run/docker.sock:/var/run/docker.sock:ro
+     - /:/rootfs:ro
+     - /var/run:/var/run
+     - /sys:/sys:ro
+     - /var/lib/docker:/var/lib/docker:ro
+   deploy:
+     mode: global
