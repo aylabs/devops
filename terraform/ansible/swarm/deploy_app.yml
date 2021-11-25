@@ -16,14 +16,20 @@
       run_once: true
 
 
-- name: Ansible Copy docker-compose-swarm.yaml Local to firt node
+- name: Ansible Copy docker-compose-swarm.yaml Local to first node
   hosts: swarm
   tasks:
-    - name: copying file with playbook
+    - name: copying docker compose file
       become: true
       copy:
         src: ../../../docker-compose-swarm.yaml
         dest: ./docker-compose-swarm.yaml
+      run_once: true
+    - name: copying prometheus config
+      become: true
+      copy:
+        src: ../../../docker/prometheus/prometheus.yml
+        dest: ./prometheus.yml
       run_once: true
     - name: deploy covid19 app
       shell: docker stack deploy --compose-file docker-compose-swarm.yaml covid19
