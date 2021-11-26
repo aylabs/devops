@@ -22,6 +22,19 @@ services:
     deploy:
       replicas: 1
 
+  node_exporter:
+    image: prom/node-exporter
+    command:
+      - '--path.rootfs=/host'
+    ports:
+      - "9100:9100"
+    volumes:
+      - '/:/host:ro,rslave'
+    deploy:
+      mode: global
+      labels:
+        prometheus-job: node-exporter
+
   grafana:
     image: grafana/grafana:6.5.0
     ports:
