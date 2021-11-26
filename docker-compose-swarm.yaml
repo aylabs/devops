@@ -12,6 +12,8 @@ services:
 
   prometheus:
     image: prom/prometheus
+    # https://github.com/prometheus/prometheus/issues/8185
+    user: root
     ports:
       - "9090:9090"
     volumes:
