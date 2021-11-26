@@ -41,3 +41,5 @@ services:
      - /var/lib/docker:/var/lib/docker:ro
     deploy:
       mode: global
+      labels:
+        prometheus-job: cadvisor
