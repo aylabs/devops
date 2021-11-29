@@ -6,7 +6,7 @@ services:
     ports:
       - "40001:8000"
     deploy:
-      replicas: 3
+      replicas: 10
       update_config:
         delay: 10s
 
